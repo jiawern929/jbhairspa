@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>JB Hair Spa — The Top 10 Hair &amp; Head Spas in Johor Bahru, Ranked</title>
 <meta name="description" content="An independent, continuously-updated ranking of the best hair spas and head spas in Johor Bahru — scored on hygiene, therapist skill, value, ambiance, and results.">
+<link rel="icon" type="image/png" href="images/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -57,11 +58,11 @@
 
   /* ---------- Header ---------- */
   header{border-bottom:1px solid var(--gold-line);background:var(--cream);position:sticky;top:0;z-index:50;}
-  .nav-row{display:flex;align-items:center;justify-content:space-between;padding:16px 0;}
+  .nav-row{display:flex;align-items:center;justify-content:space-between;padding:28px 0;}
   .brand{font-family:'Fraunces',serif;font-size:1.3rem;font-weight:600;}
   .brand span{color:var(--gold);}
   nav ul{list-style:none;display:flex;gap:26px;margin:0;padding:0;}
-  nav a{font-size:.88rem;font-weight:500;color:var(--ink-soft);border-bottom:2px solid transparent;padding-bottom:3px;}
+  nav a{font-size:1.05rem;font-weight:500;color:var(--ink-soft);border-bottom:2px solid transparent;padding-bottom:3px;}
   nav a:hover{color:var(--ink);border-bottom-color:var(--gold);}
 
   /* ---------- Section shell: every section is a distinct, labelled block ---------- */
@@ -76,23 +77,85 @@
   .section-head .kicker{color:var(--ink-soft);font-size:.95rem;max-width:54ch;margin:0;line-height:1.5;}
 
   /* ---------- Hero ---------- */
-  #hero{padding:76px 0 68px;border-bottom:1px solid var(--gold-line);}
-  .hero-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:56px;align-items:start;}
-  #hero h1{font-size:clamp(2.2rem,4vw,3.2rem);line-height:1.12;max-width:18ch;}
-  .hero-lede{font-size:1.08rem;color:var(--ink-soft);max-width:48ch;}
-  .hero-actions{display:flex;gap:14px;margin-top:26px;flex-wrap:wrap;}
-  .btn{display:inline-block;padding:13px 24px;border-radius:2px;font-weight:600;font-size:.92rem;}
-  .btn-primary{background:var(--ink);color:var(--cream);}
-  .btn-primary:hover{background:var(--gold);}
-  .btn-secondary{border:1px solid var(--ink-soft);color:var(--ink);}
-  .btn-secondary:hover{border-color:var(--gold);color:var(--gold);}
-  .trust-panel{background:var(--card);border:1px solid var(--gold-line);padding:28px;}
-  .trust-panel h3{font-size:1rem;margin-bottom:14px;}
-  .trust-item{display:flex;gap:14px;padding:14px 0;border-top:1px solid var(--gold-soft);}
-  .trust-item:first-of-type{border-top:none;padding-top:0;}
+  #hero {
+    padding: 140px 0;
+    border-bottom: 1px solid var(--gold-line);
+    background: url('images/hero-spa.jpg') center/cover no-repeat;
+    position: relative;
+    overflow: hidden;
+  }
+  #hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(251,244,228,0.95) 0%, rgba(251,244,228,0.85) 40%, rgba(251,244,228,0) 65%);
+    z-index: 1;
+  }
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 580px;
+    text-align: left;
+  }
+  
+  @keyframes textReveal {
+    0% { opacity: 0; transform: translateY(30px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes gradientMove {
+    0% { background-position: 0% center; }
+    100% { background-position: 200% center; }
+  }
+  
+  #hero h1 {
+    font-size: clamp(2.8rem, 5vw, 4.2rem);
+    line-height: 1.1;
+    margin-bottom: 8px;
+    background: linear-gradient(to right, var(--ink) 20%, var(--gold) 50%, var(--ink) 80%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: textReveal 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards, gradientMove 8s linear infinite;
+  }
+  #hero h2 {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+    font-weight: 500;
+    color: var(--ink-soft);
+    margin-bottom: 24px;
+    opacity: 0;
+    animation: textReveal 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.15s forwards;
+  }
+  .hero-lede {
+    font-size: 1.15rem;
+    color: var(--ink-soft);
+    max-width: 44ch;
+    opacity: 0;
+    animation: textReveal 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.3s forwards;
+  }
+  .hero-actions {
+    display: flex;
+    gap: 14px;
+    margin-top: 36px;
+    flex-wrap: wrap;
+    opacity: 0;
+    animation: textReveal 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.45s forwards;
+  }
+  .btn { display: inline-block; padding: 13px 24px; border-radius: 2px; font-weight: 600; font-size: .92rem; transition: all 0.2s; }
+  .btn-primary { background: var(--ink); color: var(--cream); }
+  .btn-primary:hover { background: var(--gold); }
+  .btn-secondary { border: 1px solid var(--ink); color: var(--ink); background: transparent; }
+  .btn-secondary:hover { border-color: var(--gold); color: var(--gold); }
+  
+  /* ---------- Trust Bar ---------- */
+  .trust-bar-section{background:var(--card);border-bottom:1px solid var(--gold-line);}
+  .trust-panel{display:flex;align-items:flex-start;gap:24px;padding:24px 0;flex-wrap:wrap;}
+  .trust-panel h3{font-size:1rem;margin:0;white-space:nowrap;flex:none;padding-top:6px;}
+  .trust-item{display:flex;gap:14px;border-left:1px solid var(--gold-soft);padding-left:24px;flex:1;min-width:240px;}
+  .trust-item:first-of-type{padding-left:0;border-left:none;}
   .trust-icon{flex:none;width:32px;height:32px;color:var(--gold);}
-  .trust-item p{margin:0;font-size:.9rem;color:var(--ink-soft);}
-  .trust-item strong{display:block;color:var(--ink);font-size:.95rem;font-weight:600;}
+  .trust-item p{margin:0;font-size:.9rem;color:var(--ink-soft);line-height:1.4;}
+  .trust-item strong{display:block;color:var(--ink);font-size:.95rem;font-weight:600;margin-bottom:2px;}
 
   /* ---------- Category quick nav ---------- */
   .cat-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:18px;}
@@ -167,7 +230,10 @@
   .foot-bottom{border-top:1px solid #46392A;padding-top:20px;font-size:.78rem;color:#B5A98F;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;}
 
   @media(max-width:920px){
-    .hero-grid{grid-template-columns:1fr;}
+    #hero::before { background: rgba(251,244,228,0.85); } /* solid overlay for better reading on mobile */
+    .trust-panel{flex-direction:column;align-items:flex-start;gap:20px;padding:28px 0;}
+    .trust-item{border-left:none;padding-left:0;border-top:1px solid var(--gold-soft);padding-top:20px;width:100%;}
+    .trust-item:first-of-type{border-top:none;padding-top:0;}
     .cat-grid{grid-template-columns:repeat(2,1fr);}
     .method-grid{grid-template-columns:1fr;}
     .loc-grid{grid-template-columns:repeat(2,1fr);}
@@ -183,7 +249,7 @@
 
 <header>
   <div class="wrap nav-row">
-    <a href="#hero" class="brand">JB Hair Spa</a>
+    <a href="#hero" class="brand"><img src="images/logo.png" alt="JB Hair Spa" style="height: 130px; display: block; margin: -20px 0 -20px -20px; mix-blend-mode: multiply;"></a>
     <nav>
       <ul>
         <li><a href="#categories">Categories</a></li>
@@ -202,15 +268,21 @@
 <!-- SECTION 1 — HERO (Focus keyword: JB Hair Spa)                -->
 <!-- ============================================================ -->
 <section id="hero">
-  <div class="wrap hero-grid">
-    <div>
-      <h1>JB Hair Spa: The Independent 2026 Scorecard</h1>
+  <div class="wrap">
+    <div class="hero-content">
+      <h1>JB Hair Spa</h1>
+      <h2>The Independent 2026 Scorecard</h2>
       <p class="hero-lede">An independent evaluation platform testing hair spas and head spas in Johor Bahru against a standardized five-point scorecard, continuously updated as salon menus and pricing change.</p>
       <div class="hero-actions">
         <a href="#ranking" class="btn btn-primary">See the Top 10 ranking</a>
         <a href="#method" class="btn btn-secondary">How we score salons</a>
       </div>
     </div>
+  </div>
+</section>
+
+<section class="trust-bar-section">
+  <div class="wrap">
     <div class="trust-panel">
       <h3>Why trust this scorecard</h3>
       <div class="trust-item">
@@ -270,7 +342,7 @@
       <article class="entry">
         <div class="entry-grid">
           <div class="entry-num">01</div>
-          <img class="entry-img" src="images/niko-spa.png" alt="Niko Hair &amp; Head Spa treatment room and Japanese head spa setup" width="280" height="210" loading="eager" fetchpriority="high">
+          <img class="entry-img" src="images/niko-spa.jpg" alt="Niko Hair &amp; Head Spa treatment room and Japanese head spa setup" width="280" height="210" loading="eager" fetchpriority="high">
           <div>
             <h3 class="entry-name">Niko Hair &amp; Head Spa</h3>
             <div class="entry-loc">Mid Valley Southkey / JB City Square / KSL / Paradigm, Johor Bahru</div>
@@ -294,7 +366,7 @@
       <article class="entry">
         <div class="entry-grid">
           <div class="entry-num">02</div>
-          <img class="entry-img" src="images/scalp-massage.png" alt="Therapist hands performing scalp massage at Willow & Rice Hair Spa" width="280" height="210" loading="lazy">
+          <img class="entry-img" src="images/scalp-massage.jpg" alt="Therapist hands performing scalp massage at Willow & Rice Hair Spa" width="280" height="210" loading="lazy">
           <div>
             <h3 class="entry-name">Willow &amp; Rice Hair Spa</h3>
             <div class="entry-loc">Taman Mount Austin, Johor Bahru</div>
@@ -318,7 +390,7 @@
       <article class="entry">
         <div class="entry-grid">
           <div class="entry-num">03</div>
-          <img class="entry-img" src="images/meridian-reception.png" alt="Meridian Head Spa reception counter and scalp analysis setup" width="280" height="210" loading="lazy">
+          <img class="entry-img" src="images/meridian-reception.jpg" alt="Meridian Head Spa reception counter and scalp analysis setup" width="280" height="210" loading="lazy">
           <div>
             <h3 class="entry-name">Meridian Head Spa</h3>
             <div class="entry-loc">Tebrau, Johor Bahru</div>
@@ -342,7 +414,7 @@
       <article class="entry">
         <div class="entry-grid">
           <div class="entry-num">04</div>
-          <img class="entry-img" src="images/botanist-products.png" alt="Organic botanical scalp care products flat lay for The Botanist's Chair" width="280" height="210" loading="lazy">
+          <img class="entry-img" src="images/botanist-products.jpg" alt="Organic botanical scalp care products flat lay for The Botanist's Chair" width="280" height="210" loading="lazy">
           <div>
             <h3 class="entry-name">The Botanist's Chair</h3>
             <div class="entry-loc">Bukit Indah, Johor Bahru</div>
@@ -366,7 +438,7 @@
       <article class="entry">
         <div class="entry-grid">
           <div class="entry-num">05</div>
-          <img class="entry-img" src="images/silk-root-private.png" alt="Private treatment room with curtains at Silk Root Hair Lab" width="280" height="210" loading="lazy">
+          <img class="entry-img" src="images/silk-root-private.jpg" alt="Private treatment room with curtains at Silk Root Hair Lab" width="280" height="210" loading="lazy">
           <div>
             <h3 class="entry-name">Silk Root Hair Lab</h3>
             <div class="entry-loc">Tampoi, Johor Bahru</div>
@@ -390,7 +462,7 @@
       <article class="entry">
         <div class="entry-grid">
           <div class="entry-num">06</div>
-          <img class="entry-img" src="images/jasmine-steam.png" alt="Head spa mist steam treatment at Jasmine Fold Spa" width="280" height="210" loading="lazy">
+          <img class="entry-img" src="images/jasmine-steam.jpg" alt="Head spa mist steam treatment at Jasmine Fold Spa" width="280" height="210" loading="lazy">
           <div>
             <h3 class="entry-name">Jasmine Fold Spa</h3>
             <div class="entry-loc">Taman Molek, Johor Bahru</div>
@@ -414,7 +486,7 @@
       <article class="entry">
         <div class="entry-grid">
           <div class="entry-num">07</div>
-          <img class="entry-img" src="images/camellia-neck.png" alt="Therapist performing shoulder and neck massage at Camellia House" width="280" height="210" loading="lazy">
+          <img class="entry-img" src="images/camellia-massage.jpg" alt="Therapist performing shoulder and neck massage at Camellia House" width="280" height="210" loading="lazy">
           <div>
             <h3 class="entry-name">Camellia House</h3>
             <div class="entry-loc">Austin Heights, Johor Bahru</div>
@@ -438,7 +510,7 @@
       <article class="entry">
         <div class="entry-grid">
           <div class="entry-num">08</div>
-          <img class="entry-img" src="images/rosewater-mask.png" alt="Keratin hair mask application close up at Rosewater &amp; Rice Salon" width="280" height="210" loading="lazy">
+          <img class="entry-img" src="images/rosewater-mask.jpg" alt="Keratin hair mask application close up at Rosewater &amp; Rice Salon" width="280" height="210" loading="lazy">
           <div>
             <h3 class="entry-name">Rosewater &amp; Rice Salon</h3>
             <div class="entry-loc">Skudai, Johor Bahru</div>
@@ -462,7 +534,7 @@
       <article class="entry">
         <div class="entry-grid">
           <div class="entry-num">09</div>
-          <img class="entry-img" src="images/quiet-lounge.png" alt="Peaceful waiting lounge at The Quiet Scalp Room" width="280" height="210" loading="lazy">
+          <img class="entry-img" src="images/quiet-room.jpg" alt="Peaceful waiting lounge at The Quiet Scalp Room" width="280" height="210" loading="lazy">
           <div>
             <h3 class="entry-name">The Quiet Scalp Room</h3>
             <div class="entry-loc">Danga Bay, Johor Bahru</div>
@@ -486,7 +558,7 @@
       <article class="entry">
         <div class="entry-grid">
           <div class="entry-num">10</div>
-          <img class="entry-img" src="images/amber-petal.png" alt="Amber Petal Hair Spa storefront in JB City Centre" width="280" height="210" loading="lazy">
+          <img class="entry-img" src="images/amber-storefront.jpg" alt="Amber Petal Hair Spa storefront in JB City Centre" width="280" height="210" loading="lazy">
           <div>
             <h3 class="entry-name">Amber Petal Hair Spa</h3>
             <div class="entry-loc">JB City Centre, Johor Bahru</div>
