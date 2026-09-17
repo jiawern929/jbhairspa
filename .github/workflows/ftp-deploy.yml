@@ -21,5 +21,5 @@ jobs:
         server: ${{ secrets.FTP_SERVER }}
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
-        # 如果你的网站根目录不是默认的，修改下面的路径 (例如主域名通常是 public_html/，子域名通常是具体的文件夹名)
-        server-dir: public_html/
+        # 保持默认，直接上传到 FTP 账号所在的根目录
+        server-dir: ./
