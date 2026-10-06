@@ -262,7 +262,10 @@
   .foot-bottom{border-top:1px solid #46392A;padding-top:20px;font-size:.78rem;color:#B5A98F;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;}
 
   @media(max-width:920px){
-    #hero::before { background: rgba(251,244,228,0.85); } /* solid overlay for better reading on mobile */
+    .wrap { padding: 0 20px; }
+    .nav-row { padding: 14px 0; }
+    .brand img { height: 75px !important; margin: 0 !important; }
+    #hero::before { background: rgba(251,244,228,0.88); } /* solid overlay for better reading on mobile */
     .trust-panel{flex-direction:column;align-items:flex-start;gap:20px;padding:28px 0;}
     .trust-item{border-left:none;padding-left:0;border-top:1px solid var(--gold-soft);padding-top:20px;width:100%;}
     .trust-item:first-of-type{border-top:none;padding-top:0;}
@@ -271,7 +274,7 @@
     .loc-grid{grid-template-columns:repeat(2,1fr);}
     .guide-grid{grid-template-columns:repeat(2,1fr);}
     .foot-grid{grid-template-columns:1fr 1fr;}
-    .hamburger-btn { display: flex; }
+    .hamburger-btn { display: flex; margin-right: 6px; }
     nav {
       position: absolute;
       top: 100%;
@@ -303,7 +306,8 @@
     nav a {
       font-size: 1.1rem;
     }
-    .entry-grid{grid-template-columns:1fr;}
+    .entry-grid{grid-template-columns:1fr;gap:18px;}
+    .entry-img{max-width:100%;max-height:230px;aspect-ratio:16/9;object-fit:cover;border-radius:4px;margin:0 auto 12px auto;}
     .entry-num{display:none;}
   }
 </style>
@@ -1015,16 +1019,6 @@
       <div class="loc-card">
         <img decoding="async" class="loc-img" src="images/mount-austin.webp" alt="Taman Melodies organic hair spa district" width="360" height="288" loading="lazy">
         <div class="loc-label"><strong>Taman Melodies</strong><span>1 salon listed</span></div>
-      </div>
-    </div>
-      </div>
-      <div class="loc-card">
-        <img decoding="async" class="loc-img" src="images/mount-austin.png" alt="Taman Mount Austin street level view Johor Bahru" width="360" height="288" loading="lazy">
-        <div class="loc-label"><strong>Taman Mount Austin</strong><span>4 salons listed</span></div>
-      </div>
-      <div class="loc-card">
-        <img decoding="async" class="loc-img" src="images/tebrau-area.png" alt="Tebrau business district street view Johor Bahru" width="360" height="288" loading="lazy">
-        <div class="loc-label"><strong>Tebrau</strong><span>3 salons listed</span></div>
       </div>
     </div>
   </div>
